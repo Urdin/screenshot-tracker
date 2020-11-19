@@ -1,0 +1,101 @@
+@import "./ant.vars.scss";
+
+body {
+	background-color: #ffffff;
+}
+
+.ant-menu-inline-collapsed {
+	width: 50px;
+}
+
+.ant-menu-inline-collapsed > .ant-menu-item,
+.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
+	padding: 0 18px !important;
+}
+
+.ant-layout-sider {
+	.ant-layout-sider-trigger {
+		border-top: 1px solid #efefef;
+	}
+}
+
+.darkmode-layer, .darkmode-toggle {
+	z-index: 10000;
+}
+
+.darkmode--activated {
+	// ignore dark mode for elements
+	img.screenshot,
+	img.screenshot-tarcker-icon {
+		mix-blend-mode: difference;
+	}
+
+	// force dark mode
+	.ant-btn.ant-btn-default,
+	.ant-layout-sider .anticon,
+	.ant-menu-submenu-popup .ant-menu-sub {
+		mix-blend-mode: normal;
+	}
+
+	.ant-layout-sider,
+	.ant-layout-sider-trigger,
+	.ant-layout-sider .ant-menu,
+	.ant-menu-submenu-popup .ant-menu-sub {
+		background-color: #eeeeee;
+	}
+
+	.ReactModalPortal {
+		position: absolute;
+		z-index: 100000000;
+	}
+}
+
+.screenshotContainer {
+	display: inline-block;
+	max-height: 150px;
+	overflow: hidden;
+	box-shadow: rgba(0,0,0,0.2) 0 1px 2px;
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		box-shadow: rgba(0,0,0,0.2) 2px 10px 20px;
+	}
+}
+
+.screenshot {
+	max-width: 100px;
+}
+
+.aboutPage {
+	main.ant-layout-content {
+		text-align: center;
+	}
+
+	.appicon {
+		padding: 50px;
+	}
+
+	.credits {
+		margin-bottom: 50px;
+
+		.ant-col.wrapper-col {
+			text-align: left;
+			margin-top: 30px;
+			padding-top: 30px;
+			border-top: 1px solid #efefef;	
+		}
+	}
+}
+
+.pageWithGradientBg main.ant-layout-content {
+	background: linear-gradient(0deg, rgba(255,255,255,1) 30%, rgba(215,243,255,1) 100%) !important;
+}
+
+.support-bar {
+	max-width: 700px;
+	margin: 0 auto;
+	border-top: 1px solid #efefef;
+	padding: 40px;
+	text-align: center;
+	font-size: 0.9em;
+}

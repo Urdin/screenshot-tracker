@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Screenshot Tracker </title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <!-- jQuery and JS bundle w/ Popper.js -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
+
+
+  <style>
+
+    html,body{
+
+      height: 100%;
+
+    }
+
+    #app{
+      display:none;
+    }
+
+
+    #form{
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+
+    }
+
+    .msg{
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    
+
+
+
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+
+
+
+
+<div class="msg"></div>
+
+<div id="form">
+  <form action="./login.php" method="POST">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Loggin</label>
+
+      <!--
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      -->
+
+      <input id="login" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter user name">
+      
+      <!--
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      -->
+
+    </div>
+
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input id="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+
+    <!--
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    -->
+
+    <button id="button" type="button" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+
+  <script defer>
+
+      
+    function sendPost(){
+
+      var login,pass,data;
+
+      login = $('#login').val();
+      pass = $('#password').val();
+      data = 'login='+login+'&password='+pass;
+
+
+      $.ajax({
+        type: "POST",
+        url: "./login.php",
+        data: data,
+        success: function(msg){
+          console.log(msg);
+          $('.msg').text(msg);
+        }
+      });
+    }
+
+    $("#button").on( "click",sendPost);
+
+
+  </script>
+
+
+</body>
+</html>
